@@ -1938,12 +1938,12 @@ public class TrolieClientIT {
 			json.writeFieldName("periods");						
 			json.writeStartArray();
 			for (int j=0;j<24;j++) {
-				ForecastPeriodSnapshot period = new ForecastPeriodSnapshot(
-						startTime,
-						startTime,
-						RatingValue.fromMva(100f),
-						Collections.emptyList()
-						);
+				ForecastPeriodSnapshot period = ForecastPeriodSnapshot.builder()
+						.periodStart(startTime)
+						.periodEnd(startTime)
+						.continuousOperatingLimit(RatingValue.fromMva(100f))
+						.emergencyOperatingLimits(Collections.emptyList())
+						.build();
 				json.writeObject(period);
 			}
 			json.writeEndArray();
@@ -1995,13 +1995,13 @@ public class TrolieClientIT {
 			json.writeFieldName("periods");
 			json.writeStartArray();
 			for (int j=0;j<24;j++) {
-				SeasonalPeriodSnapshot period = new SeasonalPeriodSnapshot(
-						startTime,
-						startTime,
-						season,
-						RatingValue.fromMva(100f),
-						Collections.emptyList()
-				);
+				SeasonalPeriodSnapshot period = SeasonalPeriodSnapshot.builder()
+						.periodStart(startTime)
+						.periodEnd(startTime)
+						.seasonName(season)
+						.continuousOperatingLimit(RatingValue.fromMva(100f))
+						.emergencyOperatingLimits(Collections.emptyList())
+						.build();
 				json.writeObject(period);
 			}
 			json.writeEndArray();

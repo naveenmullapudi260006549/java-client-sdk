@@ -2,6 +2,7 @@ package energy.trolie.client.model.ratingproposals;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import energy.trolie.client.model.common.CurrentSource;
 import energy.trolie.client.model.common.InputValue;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -40,4 +41,11 @@ public class ForecastRatingPeriod {
 
     @JsonProperty("inputs-used")
     private List<InputValue> inputsUsed;
+
+    /**
+     * Optional origin/quality of the rating value, e.g. telemetered, calculated,
+     * estimated, or manual.
+     */
+    @JsonProperty("current-source")
+    private CurrentSource currentSource;
 }

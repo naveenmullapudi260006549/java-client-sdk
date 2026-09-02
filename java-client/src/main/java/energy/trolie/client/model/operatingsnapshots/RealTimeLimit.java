@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import energy.trolie.client.model.common.CurrentSource;
 import energy.trolie.client.model.common.EmergencyRatingValue;
 import energy.trolie.client.model.common.RatingValue;
 
@@ -31,5 +32,12 @@ public class RealTimeLimit {
 
     @JsonProperty("emergency-operating-limits")
     private List<EmergencyRatingValue> emergencyOperatingLimits;
+
+    /**
+     * Optional origin/quality of the rating value, e.g. telemetered, calculated,
+     * estimated, or manual.
+     */
+    @JsonProperty("current-source")
+    private CurrentSource currentSource;
 
 }

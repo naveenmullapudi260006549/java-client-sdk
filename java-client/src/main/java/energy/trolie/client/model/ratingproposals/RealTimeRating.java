@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import energy.trolie.client.model.common.CurrentSource;
 import energy.trolie.client.model.common.EmergencyRatingValue;
 import energy.trolie.client.model.common.InputValue;
 import energy.trolie.client.model.common.RatingValue;
@@ -33,4 +34,11 @@ public class RealTimeRating {
 
     @JsonProperty("inputs-used")
     private List<InputValue> inputsUsed;
+
+    /**
+     * Optional origin/quality of the rating value, e.g. telemetered, calculated,
+     * estimated, or manual.
+     */
+    @JsonProperty("current-source")
+    private CurrentSource currentSource;
 }
